@@ -105,8 +105,12 @@ export const excelCurrent = (info) => {
           },
         })
         .then((result) => {
-          console.log(result);
-          if (result.data.data.message == "Import succesfully") {
+          console.log(result.status);
+          if (
+            result.data.data.message == "Import succesfully" ||
+            result.status == 201 ||
+            result.status == 200
+          ) {
             Swal.fire("Correcto", "Archivo importado correctamente", "success");
             dispatch(finishLoading());
           }

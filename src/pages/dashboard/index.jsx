@@ -73,101 +73,112 @@ const Dashboard = () => {
   return (
     <ProtectedRoute>
       <Sidebar>
-        <span>El estado del token es: {`${accessToken}`}, y el email es:{`${email}`} </span>
-      {
-        loading 
-        ? 
-        <div className="row loading">
-          <div className="offset-5">
-            <ClipLoader color={"#123abc"} loading={loading} size={150} />
-          </div>
-        </div>
-        
-        :
-        <>
-        <br />
-        <h4>Dar click
-          <span className="excel">
-            <ExcelFile
-              element=" Aquí "
-              filename="Archivo Maestro"
-            >
-              <ExcelSheet
-                data={excel}
-                name="Archivo Maestro"
-              >
-                <ExcelColumn label="id_curso" value="id_curso" />
-                <ExcelColumn label="name_curso" value="name_curso" />
-                <ExcelColumn
-                  label="sede"
-                  value="sede"
-                />
-                <ExcelColumn label="centro_administrativo" value="centro_administrativo" />
-                <ExcelColumn
-                  label="region"
-                  value="region"
-                />
-                <ExcelColumn
-                  label="cod_academica"
-                  value="cod_academica"
-                />
-                <ExcelColumn label="org_academica" value="org_academica" />
-                <ExcelColumn label="area_conocimiento" value="area_conocimiento" />
-                <ExcelColumn label="_id" value="_id" />
-                <ExcelColumn label="doc_id" value="doc_id" />
-                <ExcelColumn label="nombre" value="nombre" />
-                <ExcelColumn label="nombre2" value="nombre2" />
-                <ExcelColumn label="apellido" value="apellido" />
-                <ExcelColumn label="apellido2" value="apellido2" />
-                <ExcelColumn label="email" value="email" />
-                <ExcelColumn label="contratacion" value="contratacion" />
-                <ExcelColumn label="cargo" value="cargo" />
-                <ExcelColumn label="rol" value="rol" />
-                <ExcelColumn label="grupo_investigacion" value="grupo_investigacion" />
-                <ExcelColumn label="celular" value="celular" />
-              </ExcelSheet>
-            </ExcelFile>
-
-          </span>
-          para exportar archivo de muestra de maestro</h4>
-        <div className="image-upload-wrap">
-          <input
-            className="file-upload-input"
-            type="file"
-            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            onChange={onSubmit}
-            multiple
-          />
-          <div className="text-information">
-            <h3>Importar Archivo Maestro Rizoma</h3>
-          </div>
-        </div>
-        
-        {nameFile ? (
-          <>
-            <div className="currentFile d-flex">
-              {/* <div className="iconFile">
-                <span>Icono</span>
-              </div> */}
-              <span>{`${nameFile}`}</span>
-              {/* <div>
-                <span className="iconDelete" onClick={deleteFile}>
-                  Delete
-                </span>
-              </div> */}
+        <div className='row'>
+          <div className='card card-body'>
+            <div className='row'>  
+              <div className='col-sm-12'>
+                <h5>El estado del token es: <br/><span style={{fontSize: "13px"}}>{accessToken}</span></h5>
+              </div>
+              <div className='col-sm-12'>
+                <h5>El email es: <br/><span style={{fontSize: "13px"}}>{email}</span></h5>
+              </div>
             </div>
-            {/* <div className="dFlex">
-              <button className="btn btn-primary margen" onClick={saveExcel}>
-                Guardar Archivo
-              </button>
-            </div> */}
-          </>
-        ) : (
-          ""
-        )}
-          
-        </>
-        }
+            {
+              loading 
+              ? 
+              <div className="row loading">
+                <div className="offset-5">
+                  <ClipLoader color={"#123abc"} loading={loading} size={150} />
+                </div>
+              </div>
+              
+              :
+              <>
+              <br />
+              <h4>Dar click
+                <span className="excel">
+                  <ExcelFile
+                    element=" Aquí "
+                    filename="Archivo Maestro"
+                  >
+                    <ExcelSheet
+                      data={excel}
+                      name="Archivo Maestro"
+                    >
+                      <ExcelColumn label="id_curso" value="id_curso" />
+                      <ExcelColumn label="name_curso" value="name_curso" />
+                      <ExcelColumn
+                        label="sede"
+                        value="sede"
+                      />
+                      <ExcelColumn label="centro_administrativo" value="centro_administrativo" />
+                      <ExcelColumn
+                        label="region"
+                        value="region"
+                      />
+                      <ExcelColumn
+                        label="cod_academica"
+                        value="cod_academica"
+                      />
+                      <ExcelColumn label="org_academica" value="org_academica" />
+                      <ExcelColumn label="area_conocimiento" value="area_conocimiento" />
+                      <ExcelColumn label="_id" value="_id" />
+                      <ExcelColumn label="doc_id" value="doc_id" />
+                      <ExcelColumn label="nombre" value="nombre" />
+                      <ExcelColumn label="nombre2" value="nombre2" />
+                      <ExcelColumn label="apellido" value="apellido" />
+                      <ExcelColumn label="apellido2" value="apellido2" />
+                      <ExcelColumn label="email" value="email" />
+                      <ExcelColumn label="contratacion" value="contratacion" />
+                      <ExcelColumn label="cargo" value="cargo" />
+                      <ExcelColumn label="rol" value="rol" />
+                      <ExcelColumn label="grupo_investigacion" value="grupo_investigacion" />
+                      <ExcelColumn label="celular" value="celular" />
+                    </ExcelSheet>
+                  </ExcelFile>
+
+                </span>
+                para exportar archivo de muestra de maestro</h4>
+              <div className="image-upload-wrap">
+                <input
+                  className="file-upload-input"
+                  type="file"
+                  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                  onChange={onSubmit}
+                  multiple
+                />
+                <div className="text-information">
+                  <h3>Importar Archivo Maestro Rizoma</h3>
+                </div>
+              </div>
+              
+              {nameFile ? (
+                <>
+                  <div className="currentFile d-flex">
+                    {/* <div className="iconFile">
+                      <span>Icono</span>
+                    </div> */}
+                    <span>{`${nameFile}`}</span>
+                    {/* <div>
+                      <span className="iconDelete" onClick={deleteFile}>
+                        Delete
+                      </span>
+                    </div> */}
+                  </div>
+                  {/* <div className="dFlex">
+                    <button className="btn btn-primary margen" onClick={saveExcel}>
+                      Guardar Archivo
+                    </button>
+                  </div> */}
+                </>
+              ) : (
+                ""
+              )}
+                
+              </>
+              }
+          </div>
+        </div>
       </Sidebar>
     </ProtectedRoute>
   )

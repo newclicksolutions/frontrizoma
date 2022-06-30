@@ -49,7 +49,7 @@ const Sidebar = ({children}) => {
 
   return (
     <div className='main-container'>
-      <motion.div animate={{width: isOpen ? "200px" : "50px",
+      <motion.div animate={{minWidth: isOpen ? "170px" : "50px",
         transition: {
           duration: 0.5,
           type: "spring",
