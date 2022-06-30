@@ -75,14 +75,14 @@ const Dashboard = () => {
       <Sidebar>
         <div className='row'>
           <div className='card card-body'>
-            <div className='row'>  
+            {/* <div className='row'>  
               <div className='col-sm-12'>
                 <h5>El estado del token es: <br/><span style={{fontSize: "13px"}}>{accessToken}</span></h5>
               </div>
               <div className='col-sm-12'>
                 <h5>El email es: <br/><span style={{fontSize: "13px"}}>{email}</span></h5>
               </div>
-            </div>
+            </div> */}
             {
               loading 
               ? 

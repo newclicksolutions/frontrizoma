@@ -9,7 +9,7 @@
   border: 1px solid grey;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 15px 17px teal;
+  box-shadow: 10px 11px #00808080;
 }
 
 .loading {
