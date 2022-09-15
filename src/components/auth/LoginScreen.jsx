@@ -8,8 +8,9 @@ import "../../styles/components/login.css"
 import NoAuthRoute from "../../pages/navigation/NoAuthRoute";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const LoginScreen = () => {
-  const dispatch = useDispatch();
+const LoginScreen = () => { 
+  const dispatch = useDispatch(); 
+  
   const history = useHistory();
 
   const { loading } = useSelector((state) => state.ui);
