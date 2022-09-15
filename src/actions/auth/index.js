@@ -99,7 +99,7 @@ export const excelCurrent = (info) => {
         formData.append(name, url[file]);
       }
       await clientAxios
-        .post("https://rizomaconnect.herokuapp.com/maestra/import", formData, {
+        .post("https://localhost:8000/maestra/import", formData, {
           headers: {
             "Content-Type":
               "multipart/form-data; boundary=<calculated when request is sent>",
