@@ -94,18 +94,17 @@ const Sidebar = ({children}) => {
             </NavLink>
           ))}
         </section>
-        <div className='top_section logout' onClick={handleLogout}>
+        <div className='top_section logout d-flex justify-content-center' onClick={handleLogout}>
           { isOpen && 
             <motion.h1 variants={showAnimation} 
               initial="hidden"
               animate="show"
               exit="hidden" className='logo'
             >
-              Logout
+              <div className="bars">
+                <FaPowerOff />
+              </div>
             </motion.h1>}
-          <div className="bars">
-            <FaPowerOff />
-          </div>
         </div>
       </motion.div>
       <main>{children}</main>

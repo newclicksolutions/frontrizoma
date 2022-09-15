@@ -19,6 +19,8 @@ const logout = () => ({
 
 export const startLoginEmailPassword = (email, user_pass) => {
   return async (dispatch) => {
+    console.log(email);
+    console.log(user_pass);
     dispatch(starLoading());
     try {
       const data = { email, password: user_pass };
@@ -30,8 +32,8 @@ export const startLoginEmailPassword = (email, user_pass) => {
       dispatch(getUserAction());
       dispatch(finishLoading());
     } catch (error) {
-      dispatch(finishLoading());
       console.log(error);
+      dispatch(finishLoading());
     }
   };
 };

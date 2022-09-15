@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const clientAxios = axios.create({
-  baseURL: "https://rizomaconnect.herokuapp.com",
+  baseURL: "https://api-apprizoma.herokuapp.com",
   headers: {
     "Content-Type": "application/json",
     Accept: "*/*",

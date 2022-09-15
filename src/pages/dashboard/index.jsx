@@ -52,37 +52,11 @@ const Dashboard = () => {
     }
   ]
 
-  // const saveExcel = (e: any) => {
-  //   e.preventDefault();
-  //   // onFinish({ title });
-  //   console.log(e.target.files);
-
-  // };
-
-  // const deleteFile = (e) => {
-  //   e.preventDefault();
-  //   console.log("prueba!");
-  //   setNameFile("");
-  // };
-
-  // const onHandleTitleChange = ({ target }) => {
-  //   console.log(target.files);
-  //   excelCurrent(target.files);
-  // };
-
   return (
     <ProtectedRoute>
       <Sidebar>
         <div className='row'>
           <div className='card card-body'>
-            {/* <div className='row'>  
-              <div className='col-sm-12'>
-                <h5>El estado del token es: <br/><span style={{fontSize: "13px"}}>{accessToken}</span></h5>
-              </div>
-              <div className='col-sm-12'>
-                <h5>El email es: <br/><span style={{fontSize: "13px"}}>{email}</span></h5>
-              </div>
-            </div> */}
             {
               loading 
               ? 

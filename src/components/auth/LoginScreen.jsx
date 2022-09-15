@@ -28,7 +28,8 @@ const LoginScreen = () => {
   //   // history.push("/dashboard");
   // };
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     dispatch(startLoginEmailPassword(email, user_pass));
   };
 
@@ -71,7 +72,7 @@ const LoginScreen = () => {
               type="submit"
               className="btn btn-primary btn-block"
               disabled={loading}
-              onClick={handleLogin}
+              onClick={(e) => handleLogin(e)}
             >
               Login
             </button>
