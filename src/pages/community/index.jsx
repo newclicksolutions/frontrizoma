@@ -8,7 +8,7 @@ import "./style.css";
 import InputField from "./InputField";
 import ExportExcel from 'react-export-excel'
 import { Group } from "./models/group.models";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { excelCurrentComunity, exportExcelApi } from "../../actions/auth";
 import Column from "./components/Column";
 
@@ -57,6 +57,8 @@ const Community = () => {
   const ExcelFile = ExportExcel.ExcelFile;
   const ExcelSheet = ExportExcel.ExcelSheet;
   const ExcelColumn = ExportExcel.ExcelColumn;
+  const group = useSelector((state) => state.group.group);
+  console.log('groupState', group);
   const [nameFile, setNameFile] = useState("");
   const [columns, setColumns] = useState(status);
 

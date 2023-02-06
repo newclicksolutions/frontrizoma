@@ -4,6 +4,7 @@ import { authReducer } from "../reducers/auth/auth.reducer";
 import { uiReducer } from "../reducers/uiReducer/ui.reducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { groupReducer } from "../reducers/group";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ const persistConfig = {
 const reducers = combineReducers({
   auth: authReducer,
   ui: uiReducer,
+  group: groupReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
