@@ -159,7 +159,7 @@ export const excelCurrentComunity = (info) => {
         formData.append(name, url[file]);
       }
       await clientAxios
-        .post("groupbycommunity/import", formData, {
+        .post("https://localhost:8000/groupbycommunity/import", formData, {
           headers: {
             "Content-Type":
               "multipart/form-data; boundary=<calculated when request is sent>",
