@@ -9,7 +9,7 @@ import InputField from "./InputField";
 import ExportExcel from 'react-export-excel'
 import { Group } from "./models/group.models";
 import { useDispatch } from "react-redux";
-import { excelCurrentComunity } from "../../actions/auth";
+import { excelCurrentComunity, exportExcelApi } from "../../actions/auth";
 import Column from "./components/Column";
 
 
@@ -224,6 +224,12 @@ const Community = () => {
       setIdDroppable((result) => [currentDroppable, ...result]);
     }
   }, [currentDroppable]);
+
+  useEffect(() => {
+    dispatch(exportExcelApi());
+  }, [])
+  
+
   console.log("objectValues", Object.values(idDroppable));
 
   return (
