@@ -64,7 +64,7 @@ const Community = () => {
   console.log('groupState', group);
   console.log('groupByCommunity', groupByCommunity);
   useEffect(() => {
-    if( groupByCommunity !== null || groupByCommunity !== undefined ){
+    if( groupByCommunity !== null){
       setCurrentDataExcel(groupByCommunity);
     } else if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
