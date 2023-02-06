@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeError, setError } from "../../actions/ui";
 import { startRegisterWithEmailPassword } from "../../actions/auth";
 
-export const RegisterScreen = () => {
+const RegisterScreen = () => {
   const dispatch = useDispatch();
   const { loading, msgError } = useSelector((state) => state.ui);
 
@@ -124,3 +124,5 @@ export const RegisterScreen = () => {
     </>
   );
 };
+
+export default RegisterScreen;

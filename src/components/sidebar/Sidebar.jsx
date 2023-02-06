@@ -13,11 +13,11 @@ const routes = [
     name: "Dashboard",
     icon: <FaHome/>,
   },
-  // {
-  //   path: "/settings",
-  //   name: "Setting",
-  //   icon: <BiCog/>
-  // }
+  {
+    path: "/community",
+    name: "Community",
+    icon: <BiCog/>
+  }
 ]
 
 const Sidebar = ({children}) => {

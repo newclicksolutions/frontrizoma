@@ -11,7 +11,8 @@ const withAuthorization = (condition) => (Component) => {
     console.log("--user--", user);
     if (!condition(!!user)) {
       console.log("--user--", user);
-      const ROUTE = user ? "/dashboard" : "/login";
+      const ROUTE = user ? "/login" : "/dashboard/login";
+      // const ROUTE = user ? "/dashboard" : "/login";
       history.push(ROUTE);
     }
     return condition(!!user) ? <Component {...props} /> : null;

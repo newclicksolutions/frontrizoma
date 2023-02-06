@@ -3,7 +3,7 @@ import { excelCurrent } from '../../actions/auth';
 import Sidebar from '../../components/sidebar/Sidebar';
 import '../../styles/components/sidebar.css';
 import ProtectedRoute from '../navigation/ProtectedRoute';
-import {Copia_de_Maestras_VF} from '../../utils/Copia_de_Maestras_VF.xlsx'
+// import {Copia_de_Maestras_VF} from '../../utils/Copia_de_Maestras_VF.xlsx'
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from "react-spinners/ClipLoader";
 import ExportExcel from 'react-export-excel';
@@ -53,7 +53,7 @@ const Dashboard = () => {
   ]
 
   return (
-    <ProtectedRoute>
+    // <ProtectedRoute>
       <Sidebar>
         <div className='row'>
           <div className='card card-body'>
@@ -154,7 +154,7 @@ const Dashboard = () => {
           </div>
         </div>
       </Sidebar>
-    </ProtectedRoute>
+    // {/* </ProtectedRoute> */}
   )
 }
 

@@ -87,6 +87,8 @@ export const startRegisterWithEmailPassword = (
 //   history.push("/auth/login");
 // }, 3000);
 
+// Dashboard
+
 export const excelCurrent = (info) => {
   return async (dispatch) => {
     console.log("infooo", info[0]);
@@ -138,6 +140,48 @@ export const signOutAction = () => {
       dispatch(finishLoading());
     } catch (error) {
       dispatch(finishLoading());
+      console.log(error);
+    }
+  };
+};
+
+// Comunity
+
+export const excelCurrentComunity = (info) => {
+  return async (dispatch) => {
+    console.log("infooo", info[0]);
+    dispatch(starLoading());
+    try {
+      const name = "file";
+      const url = info;
+      const formData = new FormData();
+      for (const file in url) {
+        formData.append(name, url[file]);
+      }
+      await clientAxios
+        .post("groupbycommunity/import", formData, {
+          headers: {
+            "Content-Type":
+              "multipart/form-data; boundary=<calculated when request is sent>",
+            "content-type": "application/vnd.ms-excel;charset=UTF-8",
+          },
+        })
+        .then((result) => {
+          console.log(result.status);
+          if (
+            result.data.data.message == "Import succesfully" ||
+            result.status == 201 ||
+            result.status == 200
+          ) {
+            Swal.fire("Correcto", "Archivo importado correctamente", "success");
+            dispatch(finishLoading());
+          }
+        });
+      // if (data.data.message) {
+      //   Swal.fire("Archivo Guardado!");
+      // }
+      // console.log(data.data.message);
+    } catch (error) {
       console.log(error);
     }
   };

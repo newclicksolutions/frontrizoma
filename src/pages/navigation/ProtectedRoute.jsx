@@ -4,9 +4,9 @@ import { Redirect } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
   const { accessToken } = useSelector((state) => state.auth);
-
+  
   if (!accessToken) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/dashboard" />;
   }
 
   return children;
