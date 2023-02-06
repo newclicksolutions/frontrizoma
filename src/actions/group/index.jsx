@@ -2,7 +2,7 @@ import clientAxios, { setAccessToken } from "../../config/axios";
 import Swal from "sweetalert2";
 import { finishLoading, starLoading } from "../ui";
 import { SHOW_GROUP } from "../../types/group";
-SHOW_GROUP
+
 
 export const exportExcelApi = () => {
   return async (dispatch) => {
@@ -55,6 +55,6 @@ export const exportExcelApi = () => {
 };
 
 const obtainStep = (item) => ({
-  type: OBTAIN_STEP_ACTION,
+  type: SHOW_GROUP,
   payload: item,
 });
