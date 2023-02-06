@@ -202,7 +202,7 @@ export const exportExcelApi = () => {
         })
         .then((result) => {
           console.log("resultExcel", result.data.length);
-          if (result.data.length > 0) {
+          if (result.data.length === 0) {
             try {
               clientAxios
                 .get("http://localhost:8000/group/", {
