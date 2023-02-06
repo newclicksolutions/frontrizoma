@@ -202,28 +202,20 @@ export const exportExcelApi = () => {
         })
         .then((result) => {
           console.log("resultExcel", result.data.length);
-          if (result.data.length === 0) {
+          if (result.data.length > 0) {
             try {
-              return async () => {
-                console.log("entra al === 0");
-                // await clientAxios
-                //   .get("http://localhost:8000/groupbycommunity/", {
-                //     headers: {
-                //       "Content-Type":
-                //         "multipart/form-data; boundary=<calculated when request is sent>",
-                //       "content-type": "application/vnd.ms-excel;charset=UTF-8",
-                //     },
-                //   })
-                //   .then((result) => {
-                //     console.log("resultExcel", result.data.length);
-                //     if(result.data.length > 0) {
-
-                //     }
-                //   });
-              };
-            } catch (error) {
-              console.log(error);
-            }
+              clientAxios
+                .get("http://localhost:8000/group/", {
+                  headers: {
+                    "Content-Type":
+                      "multipart/form-data; boundary=<calculated when request is sent>",
+                    "content-type": "application/vnd.ms-excel;charset=UTF-8",
+                  },
+                })
+                .then((result) => {
+                  console.log("resultGroup", result);
+                });
+            } catch (error) {}
           }
           // if (
           //   result.data.data.message == "Import succesfully" ||
