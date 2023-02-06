@@ -1,3 +1,4 @@
+import { loginLoading } from "../../types/auth";
 import { SHOW_GROUP, SHOW_GROUP_SUCCESS, SHOW_GROUP_ERROR, SHOW_GROUPBYCOMMUNITY, SHOW_GROUPBYCOMMUNITY_SUCCESS, SHOW_GROUPBYCOMMUNITY_ERROR } from "../../types/group";
 import { types } from "../../types/register";
 
@@ -10,18 +11,6 @@ const initialState = {
 
 export const groupReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.uiSetError:
-      return {
-        ...state,
-        msgError: action.payload,
-      };
-
-    case types.uiRemoveError:
-      return {
-        ...state,
-        msgError: null,
-      };
-
     case loginLoading.uiStartLoading:
       return {
         ...state,
