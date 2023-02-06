@@ -101,7 +101,7 @@ export const excelCurrent = (info) => {
         formData.append(name, url[file]);
       }
       await clientAxios
-        .post("https://localhost:8000/maestra/import", formData, {
+        .post("http://localhost:8000/maestra/import", formData, {
           headers: {
             "Content-Type":
               "multipart/form-data; boundary=<calculated when request is sent>",
@@ -159,7 +159,7 @@ export const excelCurrentComunity = (info) => {
         formData.append(name, url[file]);
       }
       await clientAxios
-        .post("https://localhost:8000/groupbycommunity/import", formData, {
+        .post("http://localhost:8000/groupbycommunity/import", formData, {
           headers: {
             "Content-Type":
               "multipart/form-data; boundary=<calculated when request is sent>",
