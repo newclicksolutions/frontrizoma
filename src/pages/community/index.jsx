@@ -64,9 +64,9 @@ const Community = () => {
   console.log('groupState', group);
   console.log('groupByCommunity', groupByCommunity);
   useEffect(() => {
-    if( groupByCommunity !== null ){
+    if( groupByCommunity !== null || groupByCommunity !== undefined ){
       setCurrentDataExcel(groupByCommunity);
-    } else if( group !== null ){
+    } else if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
     }
   }, [group, groupByCommunity])
@@ -258,7 +258,7 @@ const Community = () => {
                     filename="Grupos"
                   >
                     <ExcelSheet
-                      data={group}
+                      data={currentDataExcel}
                       name="Archivo Maestro"
                     >
                       <ExcelColumn label="_id" value="_id" />
