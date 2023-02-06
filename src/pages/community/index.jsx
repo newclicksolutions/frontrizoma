@@ -9,8 +9,9 @@ import InputField from "./InputField";
 import ExportExcel from 'react-export-excel'
 import { Group } from "./models/group.models";
 import { useDispatch, useSelector } from "react-redux";
-import { excelCurrentComunity, exportExcelApi } from "../../actions/auth";
+import { excelCurrentComunity } from "../../actions/auth";
 import Column from "./components/Column";
+import { exportExcelApi } from "../../actions/group";
 
 
 const Container = styled.div`
