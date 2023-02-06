@@ -59,7 +59,18 @@ const Community = () => {
   const ExcelSheet = ExportExcel.ExcelSheet;
   const ExcelColumn = ExportExcel.ExcelColumn;
   const group = useSelector((state) => state.group.group);
+  const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
+  const [currentDataExcel, setCurrentDataExcel] = useState(null)
   console.log('groupState', group);
+  console.log('groupByCommunity', groupByCommunity);
+  useEffect(() => {
+    if( groupByCommunity !== null ){
+      setCurrentDataExcel(groupByCommunity);
+    } else if( group !== null ){
+      setCurrentDataExcel(group);
+    }
+  }, [group, groupByCommunity])
+  console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
   const [columns, setColumns] = useState(status);
 
@@ -232,7 +243,6 @@ const Community = () => {
     dispatch(exportExcelApi());
   }, [])
   
-
   console.log("objectValues", Object.values(idDroppable));
 
   return (
@@ -248,7 +258,7 @@ const Community = () => {
                     filename="Grupos"
                   >
                     <ExcelSheet
-                      data={columnsFromBackend}
+                      data={group}
                       name="Archivo Maestro"
                     >
                       <ExcelColumn label="_id" value="_id" />

@@ -29,6 +29,12 @@ export const groupReducer = (state = initialState, action) => {
         group: action.payload,
       };
 
+    case SHOW_GROUPBYCOMMUNITY:
+      return {
+        ...state,
+        groupByCommunity: action.payload,
+      };
+
     default:
       return state;
   }

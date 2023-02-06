@@ -1,7 +1,7 @@
 import clientAxios, { setAccessToken } from "../../config/axios";
 import Swal from "sweetalert2";
 import { finishLoading, starLoading } from "../ui";
-import { SHOW_GROUP } from "../../types/group";
+import { SHOW_GROUP, SHOW_GROUPBYCOMMUNITY } from "../../types/group";
 
 
 export const exportExcelApi = () => {
@@ -31,9 +31,11 @@ export const exportExcelApi = () => {
                 })
                 .then((result) => {
                   console.log("resultGroup", result);
-                  dispatch(obtainStep(result.data));
+                  dispatch(obtainGroupExcel(result.data));
                 });
             } catch (error) {}
+          }else {
+            dispatch(obtainGroupByCommunity(result.data));
           }
           // if (
           //   result.data.data.message == "Import succesfully" ||
@@ -54,7 +56,12 @@ export const exportExcelApi = () => {
   };
 };
 
-const obtainStep = (item) => ({
+const obtainGroupExcel = (item) => ({
   type: SHOW_GROUP,
+  payload: item,
+});
+
+const obtainGroupByCommunity = (item) => ({
+  type: SHOW_GROUPBYCOMMUNITY,
   payload: item,
 });
