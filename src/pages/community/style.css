@@ -3,3 +3,25 @@
   overflow-y: auto !important;
   overflow-x: unset !important;
 }
+
+.container-group {
+  display: flex;
+  height: 100%;
+  width: 82vw;
+  overflow-x: auto;
+}
+
+.task-card {
+  user-select: none;
+  padding: 16px;
+  margin: 0px 0px 8px;
+  min-height: 50px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 4px;
+  border: 1px solid rgb(69, 108, 134);
+}
+
+.card {
+  height: 94vh !important;
+}

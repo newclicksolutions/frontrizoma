@@ -73,7 +73,7 @@ const Community = () => {
   }, [group, groupByCommunity])
   console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
-  const [columns, setColumns] = useState(status);
+  const [columns, setColumns] = useState(group);
 
   const [dragAndDrop, setDragAndDrop] = useState("");
   const [todos, setTodos] = useState([]);
@@ -137,11 +137,39 @@ const Community = () => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (dragAndDrop) {
-      setTodos([...todos, { id: Date.now(), name: dragAndDrop }]);
-      console.log("dragAndDrop", todos);
+    if (dragAndDrop.length > 0) {
+      // setTodos([...columns, { id: Date.now(), name: dragAndDrop }]);
+      setColumns({
+        ...columns, 
+      [Date.now()]: {
+        name: dragAndDrop,
+        color: "#FFFAE6",
+        items: [
+        //   {
+        //   name: "Materiales3",
+        //   id: "82175940012223",
+        // }
+      ]
+      }})
+      setDragAndDrop("");
+      console.log("dragAndDropx", dragAndDrop.length);
     }
   };
+
+  useEffect(() => {
+    dispatch(exportExcelApi());
+    // console.log("columns", columns);
+    // setColumns({
+    //   ...columns, 
+    // ["123333"]: {
+    //   name: "Requested2",
+    //   color: "#FFFAE6",
+    //   items: [{
+    //     name: "Materiales2",
+    //     id: "8217594001222",
+    //   }]
+    // }})
+  }, [])
 
   console.log("dragAndDrop--", dragAndDrop);
 
@@ -239,10 +267,6 @@ const Community = () => {
       setIdDroppable((result) => [currentDroppable, ...result]);
     }
   }, [currentDroppable]);
-
-  useEffect(() => {
-    dispatch(exportExcelApi());
-  }, [])
   
   console.log("objectValues", Object.values(idDroppable));
 
@@ -307,7 +331,14 @@ const Community = () => {
               )}
             </div>
           </div>
-          {/* <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+          <InputField
+            dragAndDrop={dragAndDrop}
+            setDragAndDrop={setDragAndDrop}
+            handleAdd={handleAdd}
+            handleDroppable={handleDroppable}
+          />
+          <hr />
+          <div className="container-group">
             <DragDropContext
               onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
             >
@@ -334,7 +365,7 @@ const Community = () => {
                 );
                 })}
             </DragDropContext>
-          </div> */}
+          </div>
         </div>
       </div>
     </Sidebar>

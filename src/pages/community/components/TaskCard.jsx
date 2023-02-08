@@ -30,21 +30,22 @@ const TaskInformation = styled.div`
 function TaskCard({ item, index }) {
   console.log('itemitem', item);
   return (
-    <Draggable key={item.id} draggableId={item.id} index={index}>
+    <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
       {(provided, snapshot) => {
         return (
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            className="task-card"
             style={{
-              userSelect: "none",
-              padding: 16,
-              margin: "0 0 8px 0",
-              minHeight: "50px",
-              backgroundColor: snapshot.isDragging ? "#263B4A" : "#456C86",
-              color: "white",
-              borderRadius: "4px",
+              // userSelect: "none",
+              // padding: 16,
+              // margin: "0 0 8px 0",
+              // minHeight: "50px",
+              backgroundColor: snapshot.isDragging ? "#263b4a69" : "#fff",
+              // color: "white",
+              // borderRadius: "4px",
               ...provided.draggableProps.style
             }}
           >

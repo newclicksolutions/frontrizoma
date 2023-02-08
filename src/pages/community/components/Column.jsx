@@ -5,7 +5,7 @@ import TaskCard from "./TaskCard";
 
 const Column = ({ droppableId, column }) => {
   return (
-    <Droppable droppableId={droppableId} key={droppableId}>
+    <Droppable droppableId={droppableId.toString()} key={droppableId}>
       {(provided, snapshot) => {
         return (
           <div
