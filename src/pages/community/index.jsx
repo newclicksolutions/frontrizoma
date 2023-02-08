@@ -73,7 +73,8 @@ const Community = () => {
   }, [group, groupByCommunity])
   console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
-  const [columns, setColumns] = useState(group);
+  const [columns, setColumns] = useState(status);
+  console.log('columns--', columns);
 
   const [dragAndDrop, setDragAndDrop] = useState("");
   const [todos, setTodos] = useState([]);
