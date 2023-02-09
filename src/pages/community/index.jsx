@@ -343,32 +343,37 @@ const Community = () => {
           />
           <hr />
           <div className="container-group">
-            <DragDropContext
-              onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
-            >
-              {Object.entries(columns).map(([columnId, column], index) => {
-                return (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center"
-                    }}
-                    key={columnId}
-                  >
-                    <h2>{column.name}</h2>
-                    <div style={{ margin: 8 }}>
-                      <Column
-                        droppableId={columnId}
+            {
+              columns ? 
+                <DragDropContext
+                  onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
+                >
+                  {Object.entries(columns).map(([columnId, column], index) => {
+                    return (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center"
+                        }}
                         key={columnId}
-                        index={index}
-                        column={column}
-                      />
-                    </div>
-                  </div>
-                );
-                })}
-            </DragDropContext>
+                      >
+                        <h2>{column.name}</h2>
+                        <div style={{ margin: 8 }}>
+                          <Column
+                            droppableId={columnId}
+                            key={columnId}
+                            index={index}
+                            column={column}
+                          />
+                        </div>
+                      </div>
+                    );
+                    })}
+                </DragDropContext>
+              :
+                ""
+            }
           </div>
         </div>
       </div>
