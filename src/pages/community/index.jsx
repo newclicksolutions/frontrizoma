@@ -74,7 +74,7 @@ const Community = () => {
   }, [group, groupByCommunity])
   console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
-  const [columns, setColumns] = useState();
+  const [columns, setColumns] = useState([]);
   const [columns2, setColumns2] = useState();
   console.log('columns--', columns);
   console.log('columns2--', columns2);
