@@ -69,12 +69,15 @@ const Community = () => {
     // } else 
     if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
+      setColumns2(group)
     }
   }, [group, groupByCommunity])
   console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
   const [columns, setColumns] = useState(status);
+  const [columns2, setColumns2] = useState();
   console.log('columns--', columns);
+  console.log('columns2--', columns2);
 
   const [dragAndDrop, setDragAndDrop] = useState("");
   const [todos, setTodos] = useState([]);
