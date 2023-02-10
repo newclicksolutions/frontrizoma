@@ -76,6 +76,7 @@ const Community = () => {
         },
       };
       setColumns(status);
+      return;
     } else if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
       status = {
