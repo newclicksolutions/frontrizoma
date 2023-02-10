@@ -5,8 +5,8 @@ import { types } from "../../types/register";
 const initialState = {
   loading: false,
   msgError: null,
-  group: null,
-  groupbycommunity: null
+  group: [],
+  groupbycommunity: []
 };
 
 export const groupReducer = (state = initialState, action) => {
