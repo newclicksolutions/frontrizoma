@@ -60,7 +60,8 @@ const Community = () => {
   const ExcelColumn = ExportExcel.ExcelColumn;
   const group = useSelector((state) => state.group.group);
   const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
-  const [currentDataExcel, setCurrentDataExcel] = useState(null)
+  const [currentDataExcel, setCurrentDataExcel] = useState(null);
+  const [columns, setColumns] = useState();
   console.log('groupState', group);
   console.log('groupByCommunity', groupByCommunity);
   console.log('currentDataExcel', currentDataExcel);
@@ -91,7 +92,6 @@ const Community = () => {
   }, [group, groupByCommunity])
   console.log('currentDataExcel', currentDataExcel);
   const [nameFile, setNameFile] = useState("");
-  const [columns, setColumns] = useState();
   const [columns2, setColumns2] = useState();
   console.log('columns--', columns);
   console.log('columns2--', columns2);
