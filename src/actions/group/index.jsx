@@ -18,7 +18,7 @@ export const exportExcelApi = () => {
           },
         })
         .then((result) => {
-          console.log("resultExcel", result.data.length);
+          console.log("resultExcel", result.data);
           if (result.data.length === 0) {
             try {
               clientAxios
