@@ -74174,9 +74174,9 @@ export const columnsFromBackend = [
 
 export const status = {
   [1]: {
-    name: "Grupos",
+    name: "Comunidades", 
     color: "#FFFAE6",
-    items: columnsFromBackend
+    items: columnsFromBackend2
   },
   // [uuidv4()]: {
   //   name: "To do",

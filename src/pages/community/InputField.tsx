@@ -4,7 +4,7 @@ const InputField = ({
   dragAndDrop,
   setDragAndDrop,
   handleAdd,
-  handleDroppable,
+  // handleDroppable,
 }: any) => {
   return (
     <div className="row" key="1">
@@ -30,7 +30,7 @@ const InputField = ({
           <button
             type="submit"
             className="btn"
-            onClick={() => handleDroppable()}
+            // onClick={() => handleDroppable()}
             // className="input_submit"
           >
             Ingresa

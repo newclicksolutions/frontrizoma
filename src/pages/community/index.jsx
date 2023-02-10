@@ -65,14 +65,13 @@ const Community = () => {
   console.log('groupByCommunity', groupByCommunity);
   let status;
   useEffect(() => {
-    // if( groupByCommunity !== null){
-    //   setCurrentDataExcel(groupByCommunity);
-    // } else 
-    if( group !== null || group !== undefined){
+    if( groupByCommunity !== null){
+      setCurrentDataExcel(groupByCommunity);
+    } else if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
       status = {
         [1]: {
-          name: "Grupos",
+          name: "Comunidades",
           color: "#FFFAE6",
           items: group
         },
@@ -119,26 +118,6 @@ const Community = () => {
   //     id_grupo: "100",
   //     grupo: "Comunidades RIZ",
   //     id_grupo_community: 1020,
-  //   },
-  //   {
-  //     id_grupo: "120693440512",
-  //     grupo: "Materiales",
-  //     id_grupo_community: 2
-  //   },
-  //   {
-  //     id_grupo: "100",
-  //     grupo: "comunidades Espejos",
-  //     id_grupo_community: 1000,
-  //   },
-  //   {
-  //     id_grupo: "100",
-  //     grupo: "Comunidades RIZ",
-  //     id_grupo_community: 1020,
-  //   },
-  //   {
-  //     id_grupo: "120693440512",
-  //     grupo: "Materiales",
-  //     id_grupo_community: 2
   //   },
   // ]);
 
@@ -233,54 +212,6 @@ const Community = () => {
     }
   };
 
-  const [currentDroppable, setCurrentDroppable] = useState({
-    id: 0,
-    name: "",
-  });
-
-  const groupsIds = [
-    {
-      id: "10000",
-      name: "Gruposxx1",
-      idGroup: "1000",
-    },
-    {
-      id: "1000000",
-      name: "Gruposxx2",
-      idGroup: "1020",
-    },
-    {
-      id: "1000000",
-      name: "Gruposxx3",
-      idGroup: "1020",
-    },
-    {
-      id: "1000000",
-      name: "Gruposxx4",
-      idGroup: "1000",
-    },
-  ];
-
-  const handleDroppable = () => {
-    setCurrentDroppable((exampleState) => ({
-      ...exampleState,
-      id: Date.now(),
-      name: dragAndDrop,
-      idGroup: Date.now(),
-    }));
-    console.log("currentDroppable1", currentDroppable);
-  };
-
-  console.log("currentDroppable2", currentDroppable === null);
-
-  useEffect(() => {
-    if (currentDroppable.id !== 0) {
-      setIdDroppable((result) => [currentDroppable, ...result]);
-    }
-  }, [currentDroppable]);
-  
-  console.log("objectValues", Object.values(idDroppable));
-
   return (
     <Sidebar>
       <div className="row">
@@ -346,7 +277,7 @@ const Community = () => {
             dragAndDrop={dragAndDrop}
             setDragAndDrop={setDragAndDrop}
             handleAdd={handleAdd}
-            handleDroppable={handleDroppable}
+            // handleDroppable={handleDroppable}
           />
           <hr />
           <div className="container-group">
