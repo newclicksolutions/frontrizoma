@@ -67,18 +67,18 @@ const Community = () => {
   console.log('currentDataExcel', currentDataExcel);
   let status;
   useEffect(() => {
-    // if( groupByCommunity !== null || groupByCommunity !== undefined ){
-    //   setCurrentDataExcel(groupByCommunity);
-    //   // status = {
-    //   //   [1]: {
-    //   //     name: "Comunidades",
-    //   //     color: "#FFFAE6",
-    //   //     items: groupByCommunity
-    //   //   },
-    //   // };
-    //   setColumns(groupByCommunity);
-    //   return;
-    // } else 
+    if( groupByCommunity !== null || groupByCommunity !== undefined ){
+      setCurrentDataExcel(groupByCommunity);
+      // status = {
+      //   [1]: {
+      //     name: "Comunidades",
+      //     color: "#FFFAE6",
+      //     items: groupByCommunity
+      //   },
+      // };
+      setColumns(groupByCommunity);
+      return;
+    } else 
     if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
       status = {
