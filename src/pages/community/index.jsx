@@ -68,6 +68,14 @@ const Community = () => {
   useEffect(() => {
     if( groupByCommunity !== null || groupByCommunity !== null ){
       setCurrentDataExcel(groupByCommunity);
+      status = {
+        [1]: {
+          name: "Comunidades",
+          color: "#FFFAE6",
+          items: groupByCommunity
+        },
+      };
+      setColumns(status);
     } else if( group !== null || group !== undefined){
       setCurrentDataExcel(group);
       status = {
