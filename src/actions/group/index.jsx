@@ -35,7 +35,7 @@ export const exportExcelApi = () => {
                 });
             } catch (error) {}
           }else {
-            dispatch(obtainGroupByCommunity(null));
+            dispatch(obtainGroupByCommunity(result.data));
           }
           // if (
           //   result.data.data.message == "Import succesfully" ||
