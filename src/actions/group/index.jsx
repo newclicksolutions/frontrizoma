@@ -35,6 +35,20 @@ export const exportExcelApi = () => {
                 });
             } catch (error) {}
           }else {
+            try {
+              clientAxios
+                .get("http://localhost:8000/group/", {
+                  headers: {
+                    "Content-Type":
+                      "multipart/form-data; boundary=<calculated when request is sent>",
+                    "content-type": "application/vnd.ms-excel;charset=UTF-8",
+                  },
+                })
+                .then((result) => {
+                  console.log("resultGroup", result);
+                  dispatch(obtainGroupExcel(result.data));
+                });
+            } catch (error) {}
             dispatch(obtainGroupByCommunity(result.data));
           }
           // if (
