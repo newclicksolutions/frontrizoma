@@ -12,8 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { excelCurrentComunity } from "../../actions/auth";
 import Column from "./components/Column";
 import { exportExcelApi } from "../../actions/group";
-// import { group } from "../../utilities/group";
-// import { groupByCommunity } from "../../utilities/groupByCommunity";
+import { group } from "../../utilities/group";
+import { groupByCommunity } from "../../utilities/groupByCommunity";
 import { statusDataComunas } from "../../utilities/statusDataComunas";
 import ellipsisOff from "../../assets/images/ellipsisOff.svg";
 import { v4 as uuidv4 } from 'uuid';
@@ -65,8 +65,8 @@ const Community = () => {
   const ExcelFile = ExportExcel.ExcelFile;
   const ExcelSheet = ExportExcel.ExcelSheet;
   const ExcelColumn = ExportExcel.ExcelColumn;
-  const group = useSelector((state) => state.group.group);
-  const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
+  // const group = useSelector((state) => state.group.group);
+  // const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
 
   const [search, setSearch] = useState({}); 
   const [filterCommunity, setFilterCommunity] = useState([]);
@@ -76,6 +76,10 @@ const Community = () => {
   const [currentData, setCurrentData] = useState(null);
   const [deleteGroup, setDeleteGroup] = useState(null);
   const [currentEditColumn, setCurrentEditColumn] = useState([]);
+
+  useEffect(() => {
+    dispatch(exportExcelApi());
+  }, [])
 
   // Function Search
   const onSearchChange = (e, name) => {
@@ -219,10 +223,6 @@ const Community = () => {
       console.log("dragAndDropx", dragAndDrop.length);
     }
   };
-
-  useEffect(() => {
-    dispatch(exportExcelApi());
-  }, [])
 
   const onDragEnd = (result, columns, setColumns) => {
     console.log("result", result);
