@@ -82,7 +82,7 @@ const Community = () => {
   }, [])
 
   console.log('group', group);
-console.log('groupByCommunity', groupByCommunity);
+  console.log('groupByCommunity', groupByCommunity);
   // Function Search
   const onSearchChange = (e, name) => {
     console.log("search2", search);
@@ -99,6 +99,8 @@ console.log('groupByCommunity', groupByCommunity);
   const [currentFilteredGroup, setCurrentFilteredGroup] = useState([])
   // let groupByCommunity = [];
   useEffect(() => {
+    console.log('group---', group);
+    console.log('groupByCommunity---', groupByCommunity);
     if( groupByCommunity.length > 0 && group.length > 0 ) {
       const groupCommunityIds = groupByCommunity.map((item) => item.id_grupo);
       const filtered =  group.filter((grupo) => {
