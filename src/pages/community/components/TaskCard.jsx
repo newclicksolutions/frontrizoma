@@ -63,10 +63,7 @@ function TaskCard({item, index, GroupByCommunity, editGroupByCommunity, setNameE
             }}
           >
             <div className="conten-card">
-              <p>{item.name || item.grupo}</p>
-              <span>{item.description}</span>
-              {/* <TaskInformation>
-              </TaskInformation> */}
+              <p>{item.name}</p>
             </div>
             <div className="close-drop">
               {/* <span className="fa-Edit" style={{marginRight: "5px"}} onClick={() => handlePopupEdit(true, item.id)}><FaEdit /></span> */}
