@@ -81,6 +81,8 @@ const Community = () => {
     dispatch(exportExcelApi());
   }, [])
 
+  console.log('group', group);
+console.log('groupByCommunity', groupByCommunity);
   // Function Search
   const onSearchChange = (e, name) => {
     console.log("search2", search);
