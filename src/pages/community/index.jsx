@@ -67,6 +67,7 @@ const Community = () => {
   const ExcelColumn = ExportExcel.ExcelColumn;
   const group = useSelector((state) => state.group.group);
   const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
+  const stateGroup = useSelector((state) => state);
 
   const [search, setSearch] = useState({}); 
   const [filterCommunity, setFilterCommunity] = useState([]);
@@ -80,7 +81,7 @@ const Community = () => {
   useEffect(() => {
     dispatch(exportExcelApi());
   }, [])
-
+  console.log('stateGroup', stateGroup);
   console.log('group', group);
   console.log('groupByCommunity', groupByCommunity);
   // Function Search

@@ -6,7 +6,7 @@ const initialState = {
   loading: false,
   msgError: null,
   group: [],
-  groupbycommunity: []
+  groupByCommunity: []
 };
 
 export const groupReducer = (state = initialState, action) => {
