@@ -13,15 +13,178 @@
 
 .task-card {
   user-select: none;
-  padding: 16px;
+  padding: 3px 10px 16px;
   margin: 0px 0px 8px;
   min-height: 50px;
   background-color: #fff;
   color: #000;
   border-radius: 4px;
-  border: 1px solid rgb(69, 108, 134);
+  /* border: 1px solid rgb(69, 108, 134); */
 }
 
 .card {
   height: 94vh !important;
+}
+
+.conten-card {
+  font-size: 13px;
+  padding-top: 3px;
+}
+
+div#Comunidades div .close-drop {
+  display: none !important;
+}
+
+div.others-drops div .close-drop {
+  display: none;
+}
+
+div.others-drops div:hover .close-drop {
+  display: flex;
+}
+
+.close-drop span {
+  cursor: pointer;
+}
+
+.fa-Edit svg {
+  color: grey;
+}
+
+.quick-card-editor {
+  background: #0009;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.card-editor {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 100px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 2px var(--ds-border-input,#dfe1e6);
+  box-sizing: border-box;
+  display: block;
+  line-height: 20px;
+  margin-bottom: 12px;
+  outline: none;
+  padding: 8px 12px;
+  transition-duration: 85ms;
+  transition-property: background-color,border-color,box-shadow;
+  transition-timing-function: ease;
+}
+
+.drop-button-primary {
+  position: absolute;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: none;
+  box-shadow: none;
+  color: #fff!important;
+  background-color: #109cf1!important;
+  width: 118px;
+  border-radius: 5px!important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 6px 12px;
+}
+
+.title-group {
+  padding-top: 8px;
+  padding-left: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.container-drop {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  background-color: var(--ds-background-accent-gray-subtlest,#ebecf0);
+  border-radius: 3px;
+  margin-right: 10px;
+  height: fit-content;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.btn-hover:hover {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 36px;
+  margin-right: 7px;
+}
+
+.container-card-editor {
+  height: 280px;
+  background: #fff;
+  top: 30vh;
+  left: 34vw;
+  border: 1px solid #bebebe;
+  border-radius: 10px;
+  padding: 12px 16px;
+  position: fixed;
+  width: 40%;
+}
+
+.container-card-editor h5 {
+  padding: 12px 0 0 13px;
+}
+
+.btn-community {
+  color: #fff!important;
+    background-color: #109cf1!important;
+    width: auto;
+    border-radius: 5px!important;
+    display: inline-block;
+    font-weight: 400;
+    color: #6c757d;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.45rem 0.9rem;
+    font-size: .9rem;
+    line-height: 1.5;
+    border-radius: 0.15rem;
+    font-family: "HelveticaNeueLTitle"!important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: 0 4px 10px rgb(16 156 241 / 24%);
+}
+
+.btn-community:hover {
+  background-color: rgba(16,156,241,.7019607843137254)!important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 6px 10px;
+}
+
+.arrows {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrows:hover {
+  background-color: rgba(0, 0, 0, 0.04);
 }

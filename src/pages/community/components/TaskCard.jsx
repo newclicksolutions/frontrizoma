@@ -1,7 +1,8 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import PropTypes from "prop-types";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "@emotion/styled";
+import { FaEdit, FaRegWindowClose } from 'react-icons/fa';
 // import "../styles.css";
 
 const TaskInformation = styled.div`
@@ -27,8 +28,20 @@ const TaskInformation = styled.div`
   }
 `;
 
-function TaskCard({ item, index }) {
-  console.log('itemitem', item);
+function TaskCard({item, index, GroupByCommunity, editGroupByCommunity, setNameEdit, openModal, setOpenModal, column, droppableId }) {
+  // console.log('itemitem', item);
+  const [idModal, setIdModal] = useState(null);
+  const handlePopupEdit = (open, id) => {
+    setIdModal(id);
+    if(open === true) {
+      setOpenModal(true);
+    }
+  }
+
+  const onSearchChange = (e) => {
+    setNameEdit(e.target.value);
+  }
+  
   return (
     <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
       {(provided, snapshot) => {
@@ -37,7 +50,7 @@ function TaskCard({ item, index }) {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            className="task-card"
+            className="task-card d-flex justify-content-between"
             style={{
               // userSelect: "none",
               // padding: 16,
@@ -50,10 +63,32 @@ function TaskCard({ item, index }) {
             }}
           >
             <div className="conten-card">
-              <p>{item.name}</p>
-            {/* <TaskInformation>
-            </TaskInformation> */}
+              <p>{item.name || item.grupo}</p>
+              <span>{item.description}</span>
+              {/* <TaskInformation>
+              </TaskInformation> */}
             </div>
+            <div className="close-drop">
+              {/* <span className="fa-Edit" style={{marginRight: "5px"}} onClick={() => handlePopupEdit(true, item.id)}><FaEdit /></span> */}
+              <span onClick={() => GroupByCommunity(item.id, column, droppableId, item)}><FaRegWindowClose /></span>
+            </div>
+            {
+              openModal && idModal === item.id
+              ?
+               <div className="quick-card-editor">
+                <div style={{width: "248px"}}>
+                  <textarea class="card-editor" dir="auto" data-autosize="true" onChange={ (e)=>onSearchChange(e) }>{item.name}</textarea>
+                </div>
+                <input 
+                  class="drop-button-primary" 
+                  type="submit" 
+                  value="Guardar"
+                  onClick={() => editGroupByCommunity(item.id)}
+                ></input>
+               </div>
+              :
+                ""
+            }
           </div>
         );
       }}

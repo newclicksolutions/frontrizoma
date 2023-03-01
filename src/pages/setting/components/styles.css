@@ -1,6 +1,6 @@
 .input {
   display: flex;
-  width: 95%;
+  /* width: 95%; */
   position: relative;
   align-items: center;
 }

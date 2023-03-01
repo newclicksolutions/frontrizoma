@@ -4,10 +4,18 @@ const InputField = ({
   dragAndDrop,
   setDragAndDrop,
   handleAdd,
-  // handleDroppable,
-}: any) => {
+  handleSaveCommunity,
+}: // handleDroppable,
+any) => {
   return (
-    <div className="row" key="1">
+    <div
+      className="row justify-content-between"
+      key="1"
+      style={{ padding: "0 16px" }}
+    >
+      <button className="btn-community" onClick={handleSaveCommunity}>
+        Guardar Comunidades
+      </button>
       <form
         className="input"
         onSubmit={(e) => {
@@ -17,7 +25,7 @@ const InputField = ({
           // inputRef.current?.blur();
         }}
       >
-        <div className="offset-8 col-sm-4 d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <input
             type="text"
             placeholder="Ingresa un nuevo grupo"
@@ -29,7 +37,7 @@ const InputField = ({
           />
           <button
             type="submit"
-            className="btn"
+            className="btn-community"
             // onClick={() => handleDroppable()}
             // className="input_submit"
           >
