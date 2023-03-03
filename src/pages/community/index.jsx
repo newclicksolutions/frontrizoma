@@ -12,8 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { excelCurrentComunity } from "../../actions/auth";
 import Column from "./components/Column";
 import { exportExcelApi } from "../../actions/group";
-// import { group } from "../../utilities/group";
-// import { groupByCommunity } from "../../utilities/groupByCommunity";
+import { group } from "../../utilities/group";
+import { groupByCommunity } from "../../utilities/groupByCommunity";
 import { statusDataComunas } from "../../utilities/statusDataComunas";
 import ellipsisOff from "../../assets/images/ellipsisOff.svg";
 import { v4 as uuidv4 } from 'uuid';
@@ -65,8 +65,8 @@ const Community = () => {
   const ExcelFile = ExportExcel.ExcelFile;
   const ExcelSheet = ExportExcel.ExcelSheet;
   const ExcelColumn = ExportExcel.ExcelColumn;
-  const group = useSelector((state) => state.group.group);
-  const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
+  // const group = useSelector((state) => state.group.group);
+  // const groupByCommunity = useSelector((state) => state.group.groupByCommunity);
   const stateGroup = useSelector((state) => state);
 
   const [search, setSearch] = useState({}); 
@@ -436,7 +436,7 @@ const Community = () => {
       })
     });
     console.log('currentData', objCommunity2);
-
+    dispatch(handlerCommunity(objCommunity2));
   }
 
   return (

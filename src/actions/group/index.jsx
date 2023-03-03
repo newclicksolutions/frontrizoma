@@ -79,3 +79,36 @@ const obtainGroupByCommunity = (item) => ({
   type: SHOW_GROUPBYCOMMUNITY,
   payload: item,
 });
+
+export const handlerCommunity = (items) => {
+  return async (dispatch) => {
+    dispatch(starLoading());
+    try {
+      await clientAxios
+        .post("http://localhost:8000/groupbycommunity", items, {
+          headers: {
+            "Content-Type":
+              "multipart/form-data; boundary=<calculated when request is sent>",
+            "content-type": "application/vnd.ms-excel;charset=UTF-8",
+          },
+        })
+        .then((result) => {
+          console.log(result);
+          // if (
+          //   result.data.data.message == "Import succesfully" ||
+          //   result.status == 201 ||
+          //   result.status == 200
+          // ) {
+          //   Swal.fire("Correcto", "Archivo importado correctamente", "success");
+          //   dispatch(finishLoading());
+          // }
+        });
+      // if (data.data.message) {
+      //   Swal.fire("Archivo Guardado!");
+      // }
+      // console.log(data.data.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
