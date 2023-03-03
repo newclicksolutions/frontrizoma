@@ -11,7 +11,7 @@ import { Group } from "./models/group.models";
 import { useDispatch, useSelector } from "react-redux";
 import { excelCurrentComunity } from "../../actions/auth";
 import Column from "./components/Column";
-import { exportExcelApi } from "../../actions/group";
+import { exportExcelApi, handlerCommunity } from "../../actions/group";
 import { group } from "../../utilities/group";
 import { groupByCommunity } from "../../utilities/groupByCommunity";
 import { statusDataComunas } from "../../utilities/statusDataComunas";
