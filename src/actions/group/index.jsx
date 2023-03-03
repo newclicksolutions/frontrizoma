@@ -83,11 +83,9 @@ const obtainGroupByCommunity = (item) => ({
 export const handlerCommunity = (items) => {
   return async (dispatch) => {
     dispatch(starLoading());
-    const objeto = {items};
-    console.log('objeto', objeto);
     try {
       await clientAxios
-        .post("http://localhost:8000/groupbycommunity", objeto, {
+        .post("http://localhost:8000/groupbycommunity", items, {
           headers: {
             "Content-Type":
               "multipart/form-data; boundary=<calculated when request is sent>",
