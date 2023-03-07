@@ -423,16 +423,24 @@ const Community = () => {
     console.log('currentData...', columns);
     let objCommunity2 = [];
     const currentData = Object.values(columns).map( item => {
-      item.items.forEach(itm => {
-        const idIncrement = uuidv4();
-        const objCommunity = {
-          id: idIncrement,
-          grupo: itm.name,
-          id_grupo: itm.id,
-          id_grupo_community: idIncrement,
+      console.log('items--', item);
+      // const arrCurrent = item.map((arr) => {
+      //   return {...arr, nameCommunity: item.name}
+      // })
+      // console.log('arrCurrent', arrCurrent);
+      item.items.forEach((itm, i) => {
+        console.log('itm--', item);
+        if(item.name !== "Comunidades") {
+          const idIncrement = i;
+          const objCommunity = {
+            id: idIncrement,
+            grupo: item.name,
+            id_grupo: itm.id,
+            id_grupo_community: idIncrement,
+          }
+          console.log('objCommunity', objCommunity);
+          objCommunity2.push(objCommunity);
         }
-        console.log('objCommunity', objCommunity);
-        objCommunity2.push(objCommunity);
       })
     });
     console.log('currentData', objCommunity2);
