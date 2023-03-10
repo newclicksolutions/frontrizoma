@@ -132,8 +132,12 @@ const Community = () => {
       setCurrentFilteredGroup(filteredGroup);
       console.log('communityColumns', communityColumns);
       let drag = Object.entries(communityColumns).map(([key, value], i) => {
+        console.log('-value-', value[0].id);
+        console.log('-value-i', i);
+        console.log('-value-key', key);
+        console.log('-value-value', value);
         return {
-          [value[i].id]: {
+          [value[0].id]: {
             name: key,
             color: "#FFFAE6",
             items: value
@@ -197,26 +201,10 @@ const Community = () => {
     dispatch(excelCurrentComunity(e.target.files));
   };
 
-  // const [idDroppable, setIdDroppable] = useState([
-  //   {
-  //     id_grupo: "100",
-  //     grupo: "comunidades Espejos",
-  //     id_grupo_community: 1000,
-  //   },
-  //   {
-  //     id_grupo: "100",
-  //     grupo: "Comunidades RIZ",
-  //     id_grupo_community: 1020,
-  //   },
-  // ]);
-
-  // Nombre de los campos para el excel idgrupo - name - id_grupo_community
-
 
   const handleAdd = (e) => {
     e.preventDefault();
     if (dragAndDrop.length > 0) {
-      // setTodos([...columns, { id: Date.now(), name: dragAndDrop }]);
       setColumns({
         ...columns, 
       [Date.now()]: {
@@ -270,57 +258,6 @@ const Community = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const name = Object.values(status);
-  //   const currentName = name.map((name) => {
-  //     return name.name
-  //   })
-  //   console.log('currentName', currentName);
-  //   const object = currentName.reduce((acc, item) => {
-  //     console.log('item11!', item);
-  //     acc[item] = ""
-  //     return acc
-  //   }, {})
-  //   console.log('object--object', object);
-  //   // setSearch(object);
-  // }, [])
-
-  // useEffect(() => {
-  //   if(currentFilteredGroup.length > 0) {
-  //     setCurrentFilteredGroup(arr => [deleteGroup, ...arr]);
-  //     console.log('currentFilteredGroup5', currentFilteredGroup);
-  //   }
-  // }, [deleteGroup])
-
-  // useEffect(() => {
-  //   if(currentFilteredGroup.length > 0) {
-  //     console.log('entra a la primera');
-  //     status = {
-  //       [1]: {
-  //         name: "Comunidades",
-  //         color: "#FFFAE6",
-  //         items: currentFilteredGroup
-  //       },
-  //       ...object
-  //     };
-  //     console.log('status--3', status);
-  //     setColumns(status);
-  //   }
-  // }, [currentFilteredGroup])
-
-  // console.log('columns', columns);
-  // console.log('urrentEditColumn', currentEditColumn);
-  // useEffect(() => {
-  //   if(currentEditColumn.length > 0){
-  //     const filteredGroup =  group.filter((grupo) => {
-  //       console.log('currentEditColumn[0].id', currentEditColumn[0].id);
-  //       const currentIdEdit = [];
-  //       currentIdEdit.push(currentEditColumn[0].id);
-  //       return currentIdEdit.includes(grupo.id);
-  //     })
-  //     console.log('filteredGroupEdit', filteredGroup);
-  //   }
-  // }, [currentEditColumn])
   const [openModal, setOpenModal] = useState(false);
   const [nameModal, setNameModal] = useState(null);
   console.log('nameModal', nameModal);
@@ -355,16 +292,12 @@ const Community = () => {
     delete objectDrag[columnId]
     console.log('objectDrag', objectDrag);
     console.log('columnId', columnId);
-    // const currentColumn = Object.keys(columns).find((item) => item !== columnId)
-    // console.log('currentColumn123', currentColumn)
-    // const newItems = currentColumn.items.filter((item) => item.id !== columnId);
     const drops = Object.values(columns).filter((column) => {
       if(item.name !== column.name) {
         console.log('column', column.items);
         return column.items
       } else {
         console.log('...currentFilteredGroupitem', column.items);
-        // setCurrentFilteredGroup(column.items);
         const col = column.items;
         col.forEach((element) => {
           currentFilteredGroup.push(element);
@@ -378,8 +311,6 @@ const Community = () => {
           ...objectDrag
         };
         console.log('status', status);
-        // setColumns(status);
-        // setDeleteGroup(column);
       }
     });
     setColumns(drops);
@@ -423,13 +354,7 @@ const Community = () => {
     console.log('currentData...', columns);
     let objCommunity2 = [];
     const currentData = Object.values(columns).map( item => {
-      console.log('items--', item);
-      // const arrCurrent = item.map((arr) => {
-      //   return {...arr, nameCommunity: item.name}
-      // })
-      // console.log('arrCurrent', arrCurrent);
       item.items.forEach((itm, i) => {
-        console.log('itm--', item);
         if(item.name !== "Comunidades") {
           const idIncrement = i;
           const objCommunity = {

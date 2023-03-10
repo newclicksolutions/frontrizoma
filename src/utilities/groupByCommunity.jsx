@@ -79,14 +79,14 @@ export const groupByCommunity = [
   //     "id": 10,
   //     "__v": 0
   // },
-  // {
-  //     "_id": "63e54e88a3fb45c628bac4bb",
-  //     "id_grupo_community": 11,
-  //     "id_grupo": 11664470,
-  //     "grupo": "Comunidad Espejo",
-  //     "id": 11,
-  //     "__v": 0
-  // },
+  {
+      "_id": "63e54e88a3fb45c628bac4bb",
+      "id_grupo_community": 11,
+      "id_grupo": 11664470,
+      "grupo": "Comunidad Espejo 2",
+      "id": 11,
+      "__v": 0
+  },
   // {
   //     "_id": "63e54e88a3fb45c628bac4be",
   //     "id_grupo_community": 12,
