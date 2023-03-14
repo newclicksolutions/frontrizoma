@@ -85,11 +85,10 @@ export const handlerCommunity = (items) => {
     dispatch(starLoading());
     try {
       await clientAxios
-        .post("http://localhost:8000/groupbycommunity", items, {
+        .post("/groupbycommunity", items, {
           headers: {
-            "Content-Type":
-              "multipart/form-data; boundary=<calculated when request is sent>",
-            "content-type": "application/vnd.ms-excel;charset=UTF-8",
+            "Content-Type": "application/json",
+            Accept: "*/*",
           },
         })
         .then((result) => {
