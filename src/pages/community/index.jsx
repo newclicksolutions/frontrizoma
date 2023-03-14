@@ -348,7 +348,7 @@ const Community = () => {
       setColumns(currentData);
     }
   }, [currentData])
-
+  const [currentId, setCurrentId] = useState(0);
   const handleSaveCommunity = (e) => {
     e.preventDefault();
     console.log('currentData...', columns);
@@ -356,12 +356,12 @@ const Community = () => {
     const currentData = Object.values(columns).map( item => {
       item.items.forEach((itm, i) => {
         if(item.name !== "Comunidades") {
-          const idIncrement = i;
+          const currentIdObj = objCommunity2.length + 1;
           const objCommunity = {
-            id: idIncrement,
+            id: currentIdObj,
             grupo: item.name,
             id_grupo: itm.id,
-            id_grupo_community: idIncrement,
+            id_grupo_community: currentIdObj,
           }
           console.log('objCommunity', objCommunity);
           objCommunity2.push(objCommunity);
